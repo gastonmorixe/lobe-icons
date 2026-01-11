@@ -1,5 +1,4 @@
 import { Center } from '@lobehub/ui';
-import { cssVar } from 'antd-style';
 import { memo } from 'react';
 
 import { IconAvatarProps } from '@/features/IconAvatar';
@@ -21,7 +20,7 @@ const DefaultAvatar = memo<Omit<IconAvatarProps, 'Icon'>>(
       <Center
         flex={'none'}
         style={{
-          background: background || cssVar.colorFillSecondary,
+          background: background || 'var(--ant-color-fill-secondary, rgba(0, 0, 0, 0.06))',
           borderRadius: shape === 'circle' ? '50%' : Math.floor(size * 0.1),
           color,
           height: size,
