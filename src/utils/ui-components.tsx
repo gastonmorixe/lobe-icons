@@ -74,6 +74,8 @@ export const Flexbox = React.forwardRef<HTMLDivElement, FlexboxProps>(({
   );
 });
 
+Flexbox.displayName = 'Flexbox';
+
 // ============ Center Component ============
 
 export const Center = React.forwardRef<HTMLDivElement, CenterProps>(({ 
@@ -105,6 +107,8 @@ export const Center = React.forwardRef<HTMLDivElement, CenterProps>(({
     </div>
   );
 });
+
+Center.displayName = 'Center';
 
 // ============ Block Component ============
 
@@ -306,6 +310,8 @@ export const TooltipGroup: FC<DivProps> = ({ children, ...props }) => {
 
 export type ActionIconSize = 'small' | 'normal' | 'large';
 
+const ICON_SIZE_RATIO = 0.6; // Icon size relative to container
+
 export const ActionIcon: FC<
   HTMLAttributes<HTMLButtonElement> & {
     icon?: ReactNode | any;
@@ -336,7 +342,7 @@ export const ActionIcon: FC<
   // Handle Lucide icons which are components
   const IconComponent = icon;
   const iconContent = IconComponent && typeof IconComponent === 'function' 
-    ? <IconComponent size={sizeMap[size] * 0.6} /> 
+    ? <IconComponent size={sizeMap[size] * ICON_SIZE_RATIO} /> 
     : icon;
 
   return (
@@ -357,11 +363,17 @@ export const CopyButton: FC<
 > = ({ content, size, color, style, children, ...props }) => {
   const [copied, setCopied] = React.useState(false);
 
-  const handleCopy = () => {
+  const handleCopy = async () => {
     if (content) {
-      navigator.clipboard.writeText(content);
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
+      try {
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          await navigator.clipboard.writeText(content);
+          setCopied(true);
+          setTimeout(() => setCopied(false), 2000);
+        }
+      } catch (err) {
+        console.error('Failed to copy:', err);
+      }
     }
   };
 
