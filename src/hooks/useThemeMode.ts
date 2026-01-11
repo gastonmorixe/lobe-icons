@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 /**
  * A simple hook to detect dark mode using CSS media query
  * This replaces the antd-style useThemeMode hook
+ * Returns { isDarkMode } for API compatibility with antd-style
  */
 export const useThemeMode = () => {
   const [isDarkMode, setIsDarkMode] = useState(() => {
