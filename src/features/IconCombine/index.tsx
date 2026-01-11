@@ -1,8 +1,8 @@
 'use client';
 
-import { Flexbox, type FlexboxProps } from '@lobehub/ui';
 import { CSSProperties, memo } from 'react';
 
+import { Flexbox, type FlexboxProps } from '@/utils/ui-components';
 import IconAvatar, { IconAvatarProps } from '@/features/IconAvatar';
 import { IconType } from '@/types';
 

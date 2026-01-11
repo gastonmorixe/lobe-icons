@@ -1,6 +1,7 @@
-import { Flexbox, Highlighter, Tag } from '@lobehub/ui';
-import { createStaticStyles } from 'antd-style';
 import { Ref, memo } from 'react';
+
+import { Flexbox, Highlighter, Tag } from '@/utils/ui-components';
+import { createStaticStyles } from '@/utils/styles';
 
 import IconPreview from '@/components/IconPreview';
 

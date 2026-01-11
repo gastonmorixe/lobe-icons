@@ -1,5 +1,6 @@
-import { DivProps } from '@lobehub/ui';
 import { FC, memo } from 'react';
+
+import { DivProps } from '@/utils/ui-components';
 
 import Ai21 from '@/Ai21';
 import Ai302 from '@/Ai302';

@@ -1,10 +1,52 @@
-import { Snippet , Center, Flexbox } from '@lobehub/ui';
-import { Features, FeaturesProps } from '@lobehub/ui/awesome';
 import { Expand, GitPullRequest, Trees } from 'lucide-react';
 
+import { Center, Flexbox } from '@/utils/ui-components';
 import Dashboard from '@/components/Dashboard';
 
-const items: FeaturesProps['items'] = [
+// Simple Snippet component replacement
+const Snippet = ({ language, children }: { language?: string; children: React.ReactNode }) => (
+  <pre style={{ 
+    padding: '12px',
+    backgroundColor: '#f5f5f5',
+    borderRadius: '6px',
+    fontFamily: 'monospace',
+    fontSize: '14px',
+  }}>
+    <code>{children}</code>
+  </pre>
+);
+
+// Simple Features component replacement
+interface FeaturesProps {
+  items: Array<{
+    icon: React.ComponentType<any>;
+    title: string;
+    description: string;
+  }>;
+}
+
+const Features = ({ items }: FeaturesProps) => (
+  <div style={{ 
+    display: 'grid', 
+    gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+    gap: '24px',
+    marginTop: '32px',
+  }}>
+    {items.map((item, index) => (
+      <div key={index} style={{ 
+        padding: '24px',
+        border: '1px solid var(--color-border, #d9d9d9)',
+        borderRadius: '8px',
+      }}>
+        <item.icon style={{ width: '32px', height: '32px', marginBottom: '12px' }} />
+        <h3 style={{ marginBottom: '8px' }}>{item.title}</h3>
+        <p style={{ color: 'var(--color-text-secondary, rgba(0, 0, 0, 0.65))' }}>{item.description}</p>
+      </div>
+    ))}
+  </div>
+);
+
+const items = [
   {
     description:
       'Icons are designed to be lightweight, utilizing highly optimized scalable vector graphics (SVG) for the best performance and quality.',
