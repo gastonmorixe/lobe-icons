@@ -13,6 +13,7 @@ export const cssVar = {
   colorBorderSecondary: 'var(--color-border-secondary, #f0f0f0)',
   colorBgContainer: 'var(--color-bg-container, #ffffff)',
   colorBgLayout: 'var(--color-bg-layout, #f5f5f5)',
+  colorFillSecondary: 'var(--color-fill-secondary, rgba(0, 0, 0, 0.06))',
   colorText: 'var(--color-text, rgba(0, 0, 0, 0.88))',
   colorTextSecondary: 'var(--color-text-secondary, rgba(0, 0, 0, 0.65))',
   colorTextTertiary: 'var(--color-text-tertiary, rgba(0, 0, 0, 0.45))',
@@ -21,6 +22,7 @@ export const cssVar = {
   borderRadius: 'var(--border-radius, 6px)',
   borderRadiusLG: 'var(--border-radius-lg, 8px)',
   borderRadiusSM: 'var(--border-radius-sm, 4px)',
+  fontFamilyCode: 'var(--font-family-code, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace)',
 };
 
 // Simple CSS-in-JS helper for creating scoped styles

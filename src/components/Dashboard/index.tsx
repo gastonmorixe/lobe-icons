@@ -48,7 +48,7 @@ const Dashboard = memo(() => {
         />
         <Segmented
           defaultValue={type}
-          onChange={(v) => setType(v)}
+          onChange={(v) => setType(v as ColorType)}
           options={[
             {
               label: 'Color',

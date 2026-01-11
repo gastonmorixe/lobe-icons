@@ -9,26 +9,36 @@ export type DivProps = HTMLAttributes<HTMLDivElement>;
 
 export interface FlexboxProps extends DivProps {
   align?: 'start' | 'center' | 'end' | 'stretch' | 'baseline';
-  justify?: 'start' | 'center' | 'end' | 'space-between' | 'space-around' | 'space-evenly';
+  justify?: 'start' | 'center' | 'end' | 'space-between' | 'space-around' | 'space-evenly' | 'flex-start' | 'flex-end';
   gap?: number;
   horizontal?: boolean;
   flex?: string | number;
   width?: string | number;
   height?: string | number;
+  paddingBlock?: number;
+  paddingInline?: number;
+  ref?: React.Ref<HTMLDivElement>;
 }
 
 export interface CenterProps extends DivProps {
   inline?: boolean;
+  flex?: string | number;
+  height?: number;
+  width?: string | number;
+  horizontal?: boolean;
+  paddingInline?: number;
+  ref?: React.Ref<HTMLDivElement>;
 }
 
 export interface TagProps extends DivProps {
   color?: string;
   bordered?: boolean;
+  icon?: ReactNode;
 }
 
 // ============ Flexbox Component ============
 
-export const Flexbox: FC<FlexboxProps> = ({
+export const Flexbox = React.forwardRef<HTMLDivElement, FlexboxProps>(({
   align = 'stretch',
   justify = 'start',
   gap = 0,
@@ -36,50 +46,69 @@ export const Flexbox: FC<FlexboxProps> = ({
   flex,
   width,
   height,
+  paddingBlock,
+  paddingInline,
   style,
   className,
   children,
   ...props
-}) => {
+}, ref) => {
   const flexStyle: CSSProperties = {
     display: 'flex',
     flexDirection: horizontal ? 'row' : 'column',
     alignItems: align,
-    justifyContent: justify,
+    justifyContent: justify === 'flex-start' ? 'start' : justify === 'flex-end' ? 'end' : justify,
     gap: typeof gap === 'number' ? `${gap}px` : gap,
     ...(flex !== undefined && { flex }),
     ...(width !== undefined && { width: typeof width === 'number' ? `${width}px` : width }),
     ...(height !== undefined && { height: typeof height === 'number' ? `${height}px` : height }),
+    ...(paddingBlock !== undefined && { paddingBlock: `${paddingBlock}px` }),
+    ...(paddingInline !== undefined && { paddingInline: `${paddingInline}px` }),
     ...style,
   };
 
   return (
-    <div className={className} style={flexStyle} {...props}>
+    <div ref={ref} className={className} style={flexStyle} {...props}>
       {children}
     </div>
   );
-};
+});
 
 // ============ Center Component ============
 
-export const Center: FC<CenterProps> = ({ inline = false, style, children, ...props }) => {
+export const Center = React.forwardRef<HTMLDivElement, CenterProps>(({ 
+  inline = false, 
+  flex, 
+  height, 
+  width,
+  horizontal = false,
+  paddingInline,
+  style, 
+  children, 
+  ...props 
+}, ref) => {
   const centerStyle: CSSProperties = {
     display: inline ? 'inline-flex' : 'flex',
     alignItems: 'center',
     justifyContent: 'center',
+    flexDirection: horizontal ? 'row' : undefined,
+    ...(flex !== undefined && { flex }),
+    ...(height !== undefined && { height: typeof height === 'number' ? `${height}px` : height }),
+    ...(width !== undefined && { width: typeof width === 'number' ? `${width}px` : width }),
+    ...(paddingInline !== undefined && { paddingInline: `${paddingInline}px` }),
     ...style,
   };
 
   return (
-    <div style={centerStyle} {...props}>
+    <div ref={ref} style={centerStyle} {...props}>
       {children}
     </div>
   );
-};
+});
 
 // ============ Block Component ============
 
-export const Block: FC<DivProps> = ({ style, children, ...props }) => {
+export const Block: FC<DivProps & { variant?: string }> = ({ variant, style, children, ...props }) => {
   const blockStyle: CSSProperties = {
     display: 'block',
     width: '100%',
@@ -95,9 +124,18 @@ export const Block: FC<DivProps> = ({ style, children, ...props }) => {
 
 // ============ Text Component ============
 
-export const Text: FC<DivProps & { size?: number; type?: 'primary' | 'secondary' | 'tertiary' }> = ({
+export const Text: FC<
+  DivProps & { 
+    size?: number; 
+    type?: 'primary' | 'secondary' | 'tertiary';
+    as?: 'span' | 'p' | 'div' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+    ellipsis?: boolean;
+  }
+> = ({
   size,
   type = 'primary',
+  as = 'div',
+  ellipsis = false,
   style,
   children,
   ...props
@@ -110,13 +148,20 @@ export const Text: FC<DivProps & { size?: number; type?: 'primary' | 'secondary'
         : type === 'tertiary'
           ? 'var(--color-text-tertiary, rgba(0, 0, 0, 0.45))'
           : 'var(--color-text, rgba(0, 0, 0, 0.88))',
+    ...(ellipsis && {
+      overflow: 'hidden',
+      textOverflow: 'ellipsis',
+      whiteSpace: 'nowrap',
+    }),
     ...style,
   };
 
+  const Component = as;
+
   return (
-    <div style={textStyle} {...props}>
+    <Component style={textStyle} {...props}>
       {children}
-    </div>
+    </Component>
   );
 };
 
@@ -263,10 +308,11 @@ export type ActionIconSize = 'small' | 'normal' | 'large';
 
 export const ActionIcon: FC<
   HTMLAttributes<HTMLButtonElement> & {
-    icon?: ReactNode;
+    icon?: ReactNode | any;
     size?: ActionIconSize;
+    glass?: boolean;
   }
-> = ({ icon, size = 'normal', style, children, ...props }) => {
+> = ({ icon, size = 'normal', glass = false, style, children, ...props }) => {
   const sizeMap = {
     small: 24,
     normal: 32,
@@ -287,9 +333,15 @@ export const ActionIcon: FC<
     ...style,
   };
 
+  // Handle Lucide icons which are components
+  const IconComponent = icon;
+  const iconContent = IconComponent && typeof IconComponent === 'function' 
+    ? <IconComponent size={sizeMap[size] * 0.6} /> 
+    : icon;
+
   return (
     <button style={iconStyle} {...(props as any)}>
-      {icon || children}
+      {iconContent || children}
     </button>
   );
 };
@@ -299,8 +351,10 @@ export const ActionIcon: FC<
 export const CopyButton: FC<
   HTMLAttributes<HTMLButtonElement> & {
     content?: string;
+    size?: string;
+    color?: string;
   }
-> = ({ content, style, children, ...props }) => {
+> = ({ content, size, color, style, children, ...props }) => {
   const [copied, setCopied] = React.useState(false);
 
   const handleCopy = () => {
@@ -316,7 +370,7 @@ export const CopyButton: FC<
     fontSize: '12px',
     border: '1px solid var(--color-border, #d9d9d9)',
     borderRadius: 'var(--border-radius, 6px)',
-    background: 'var(--color-bg-container, #ffffff)',
+    background: color || 'var(--color-bg-container, #ffffff)',
     cursor: 'pointer',
     transition: 'all 0.2s',
     ...style,
@@ -332,7 +386,7 @@ export const CopyButton: FC<
 // ============ Highlighter Component ============
 
 export const Highlighter: FC<
-  DivProps & {
+  HTMLAttributes<HTMLPreElement> & {
     language?: string;
   }
 > = ({ language, style, children, ...props }) => {
@@ -356,7 +410,7 @@ export const Highlighter: FC<
 
 export const Icon: FC<
   DivProps & {
-    icon?: ReactNode;
+    icon?: ReactNode | any;
     size?: number | string;
   }
 > = ({ icon, size = 24, style, children, ...props }) => {
@@ -370,9 +424,15 @@ export const Icon: FC<
     ...style,
   };
 
+  // Handle Lucide icons which are components
+  const IconComponent = icon;
+  const iconContent = IconComponent && typeof IconComponent === 'function' 
+    ? <IconComponent size={size} /> 
+    : icon;
+
   return (
     <span style={iconStyle} {...props}>
-      {icon || children}
+      {iconContent || children}
     </span>
   );
 };
@@ -387,8 +447,10 @@ export const StoryBook: FC<
   return <div {...props}>{children}</div>;
 };
 
-export const useControls = (controls: any, options?: any): any => {
-  return controls;
+export const useControls = (...args: any[]): any => {
+  // Extract the first object which contains the controls
+  const controls = args.find(arg => arg && typeof arg === 'object' && !arg.store && !arg.collapsed);
+  return controls || {};
 };
 
 export const useCreateStore = (): any => {
