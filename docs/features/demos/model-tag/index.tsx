@@ -1,5 +1,5 @@
 import { ModelTag, modelMappings } from '@lobehub/icons';
-import { Flexbox } from '@lobehub/ui';
+import { Flexbox } from '@/utils/ui-components';
 
 export default () => {
   return (

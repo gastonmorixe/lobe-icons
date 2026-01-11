@@ -1,6 +1,7 @@
-import { Flexbox, FlexboxProps } from '@lobehub/ui';
-import { createStaticStyles, cx } from 'antd-style';
 import { ReactNode, Ref, memo, useRef } from 'react';
+
+import { Flexbox, FlexboxProps } from '@/utils/ui-components';
+import { createStaticStyles, cx } from '@/utils/styles';
 
 import DownloadButton from '@/components/DownloadButton';
 

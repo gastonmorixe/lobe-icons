@@ -1,8 +1,8 @@
 'use client';
 
-import { Center, type CenterProps } from '@lobehub/ui';
 import { CSSProperties, memo } from 'react';
 
+import { Center, type CenterProps } from '@/utils/ui-components';
 import { useThemeMode } from '@/hooks/useThemeMode';
 import { IconType } from '@/types';
 

@@ -13,8 +13,8 @@ apiHeader:
 
 ```tsx
 import { getLobeIconCDN } from '@lobehub/icons';
-import { Grid } from '@lobehub/ui';
-import { useThemeMode } from 'antd-style';
+import { Grid } from '@/utils/ui-components';
+import { useThemeMode } from '@/hooks/useThemeMode';
 
 export default () => {
   const { isDarkMode } = useThemeMode();

@@ -1,8 +1,9 @@
 'use client';
 
-import { ActionIcon, ActionIconSize, DivProps } from '@lobehub/ui';
-import { Download } from 'lucide-react';
 import { memo } from 'react';
+
+import { ActionIcon, ActionIconSize, DivProps } from '@/utils/ui-components';
+import { Download } from 'lucide-react';
 
 export interface DownloadButtonProps extends DivProps {
   className?: string;

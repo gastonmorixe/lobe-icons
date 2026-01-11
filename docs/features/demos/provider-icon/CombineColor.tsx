@@ -1,5 +1,5 @@
 import { ModelProvider, ProviderIcon } from '@lobehub/icons';
-import { Grid } from '@lobehub/ui';
+import { Grid } from '@/utils/ui-components';
 
 export default () => {
   return (
