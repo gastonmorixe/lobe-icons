@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 
-import { RNIconAvatar, type RNIconAvatarProps } from '@/features';
+import { RNIconAvatar, type RNIconAvatarProps } from '../../../../../../src/features';
 
 import { AVATAR_BACKGROUND, AVATAR_COLOR, AVATAR_ICON_MULTIPLE, TITLE } from '../style';
 import Mono from './Mono';

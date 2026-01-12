@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import { Image, ImageStyle, View } from 'react-native';
 
-import { RNIconProps } from '@/features';
+import { RNIconProps } from '../../../../../../src/features';
 
 const Icon = memo<RNIconProps>(({ size = 24, style }) => {
   const imageStyle: ImageStyle = {

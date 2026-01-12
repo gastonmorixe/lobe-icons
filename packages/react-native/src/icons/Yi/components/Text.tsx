@@ -1,1 +1,1 @@
-export { default } from '@/icons/ZeroOne/components/Text';
+export { default } from '../../../../../../src/icons/ZeroOne/components/Text';

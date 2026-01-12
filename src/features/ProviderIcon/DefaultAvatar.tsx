@@ -1,6 +1,6 @@
 import { memo } from 'react';
 
-import { Center } from '@/utils/ui-components';
+import { Center } from '../../utils/ui-components';
 
 import type { IconAvatarProps } from '../IconAvatar';
 import DefaultIcon from './DefaultIcon';

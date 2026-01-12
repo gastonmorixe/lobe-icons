@@ -2,7 +2,7 @@
 
 import { memo } from 'react';
 
-import type { IconType } from '@/types';
+import type { IconType } from '../../types';
 
 import Color from './Color';
 

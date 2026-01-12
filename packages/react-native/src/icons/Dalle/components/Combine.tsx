@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 
-import { RNIconCombine, type RNIconCombineProps } from '@/features';
-import Mono from '@/icons/OpenAI/components/Mono';
+import { RNIconCombine, type RNIconCombineProps } from '../../../../../../src/features';
+import Mono from '../../../../../../src/icons/OpenAI/components/Mono';
 
 import { COMBINE_SPACE_MULTIPLE, COMBINE_TEXT_MULTIPLE, TITLE } from '../style';
 import Text from './Text';

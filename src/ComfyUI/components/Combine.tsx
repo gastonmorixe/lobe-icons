@@ -2,7 +2,7 @@
 
 import { memo } from 'react';
 
-import IconCombine, { type IconCombineProps } from '@/features/IconCombine';
+import IconCombine, { type IconCombineProps } from '../../features/IconCombine';
 
 import { COLOR_PRIMARY, COMBINE_SPACE_MULTIPLE, COMBINE_TEXT_MULTIPLE, TITLE } from '../style';
 import Text from './Text';

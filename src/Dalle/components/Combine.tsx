@@ -2,8 +2,8 @@
 
 import { memo } from 'react';
 
-import Mono from '@/OpenAI/components/Mono';
-import IconCombine, { type IconCombineProps } from '@/features/IconCombine';
+import Mono from '../../OpenAI/components/Mono';
+import IconCombine, { type IconCombineProps } from '../../features/IconCombine';
 
 import { COMBINE_SPACE_MULTIPLE, COMBINE_TEXT_MULTIPLE, TITLE } from '../style';
 import Text from './Text';

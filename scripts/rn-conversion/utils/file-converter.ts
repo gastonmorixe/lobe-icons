@@ -16,7 +16,7 @@ export class FileConverter {
       // 转换重导出路径：@/ComponentName -> @/icons/ComponentName
       content = content.replaceAll(
         /export { default } from '@\/([^/]+)\/components\/([^']+)';/g,
-        "export { default } from '@/icons/$1/components/$2';",
+        "export { default } from '../../../src/icons/$1/components/$2';",
       );
 
       return { content, success: true };
@@ -139,7 +139,7 @@ export class FileConverter {
     const svgImports = this.detectSvgImports(content);
     return content.replaceAll(
       /import type { IconType } from '@\/types';\s*\n/g,
-      `import { ${svgImports.join(', ')} } from 'react-native-svg';\n\nimport type { RNIconProps } from '@/features';\n`,
+      `import { ${svgImports.join(', ')} } from 'react-native-svg';\n\nimport type { RNIconProps } from '../../../src/features';\n`,
     );
   }
 
@@ -158,7 +158,7 @@ export class FileConverter {
     if (content.includes('useFillIds') && !content.includes('import { useFillIds }')) {
       result = result.replaceAll(
         /import type { RNIconProps } from '@\/features';\s*\n/g,
-        "import type { RNIconProps } from '@/features';\nimport { useFillIds } from '@/hooks/useFillId';\n",
+        "import type { RNIconProps } from '../../../src/features';\nimport { useFillIds } from '../../../src/hooks/useFillId';\n",
       );
     }
 
@@ -166,7 +166,7 @@ export class FileConverter {
     if (content.includes('useFillId(') && !content.includes('import { useFillId }')) {
       result = result.replaceAll(
         /import type { RNIconProps } from '@\/features';\s*\n/g,
-        "import type { RNIconProps } from '@/features';\nimport { useFillId } from '@/hooks/useFillId';\n",
+        "import type { RNIconProps } from '../../../src/features';\nimport { useFillId } from '../../../src/hooks/useFillId';\n",
       );
     }
 
@@ -174,7 +174,7 @@ export class FileConverter {
     if (usesUseFillId && !content.includes('import { TITLE }')) {
       result = result.replaceAll(
         /import type { RNIconProps } from '@\/features';\s*\n/g,
-        "import type { RNIconProps } from '@/features';\nimport { TITLE } from '../style';\n",
+        "import type { RNIconProps } from '../../../src/features';\nimport { TITLE } from '../style';\n",
       );
     }
 
@@ -418,7 +418,7 @@ export class FileConverter {
     // 更新导入
     result = result.replaceAll(
       /import IconAvatar, { type IconAvatarProps } from '@\/features\/IconAvatar';\s*\n/g,
-      "import { RNIconAvatar, type RNIconAvatarProps } from '@/features';\n",
+      "import { RNIconAvatar, type RNIconAvatarProps } from '../../../src/features';\n",
     );
 
     // 更新类型定义
@@ -466,7 +466,7 @@ export class FileConverter {
       content
         .replaceAll(
           /import IconCombine, { type IconCombineProps } from '@\/features\/IconCombine';\s*\n/g,
-          "import { RNIconCombine, type RNIconCombineProps } from '@/features';\n",
+          "import { RNIconCombine, type RNIconCombineProps } from '../../../src/features';\n",
         )
         .replaceAll(
           "export interface CombineProps extends Omit<IconCombineProps, 'Icon' | 'Text'>",
@@ -480,7 +480,7 @@ export class FileConverter {
         // 修复跨图标组件导入路径
         .replaceAll(
           /import (.+) from '@\/([^/]+)\/components\/([^']+)';\s*\n/g,
-          "import $1 from '@/icons/$2/components/$3';\n",
+          "import $1 from '../../../src/icons/$2/components/$3';\n",
         )
         // 移除fontSize属性（包括复杂表达式）
         .replaceAll(/fontSize: size \* [\d.]+,\s*/g, '')

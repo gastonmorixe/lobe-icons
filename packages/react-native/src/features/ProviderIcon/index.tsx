@@ -1,7 +1,7 @@
 import React, { memo, useMemo } from 'react';
 import { type ViewStyle } from 'react-native';
 
-import { RNIconProps } from '@/types';
+import { RNIconProps } from '../../../../../src/types';
 
 import { rnProviderMappings } from '../providerConfig';
 import DefaultAvatar from './DefaultAvatar';

@@ -1,9 +1,9 @@
 import { ReactNode, Ref, memo, useRef } from 'react';
 
-import { Flexbox, FlexboxProps } from '@/utils/ui-components';
-import { createStaticStyles, cx } from '@/utils/styles';
+import { Flexbox, FlexboxProps } from '../../utils/ui-components';
+import { createStaticStyles, cx } from '../../utils/styles';
 
-import DownloadButton from '@/components/DownloadButton';
+import DownloadButton from '../../components/DownloadButton';
 
 const styles = createStaticStyles(({ css, cssVar }) => {
   return {

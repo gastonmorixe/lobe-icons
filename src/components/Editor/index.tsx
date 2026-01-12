@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from 'react';
 
-import { Flexbox, StoryBook, useControls, useCreateStore } from '@/utils/ui-components';
-import { createStaticStyles } from '@/utils/styles';
+import { Flexbox, StoryBook, useControls, useCreateStore } from '../../utils/ui-components';
+import { createStaticStyles } from '../../utils/styles';
 
-import { useSvgo } from '@/components/Editor/useSvgo';
+import { useSvgo } from '../../components/Editor/useSvgo';
 
 import Color from './Color';
 import Mono from './Mono';

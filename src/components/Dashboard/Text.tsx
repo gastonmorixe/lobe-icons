@@ -3,10 +3,10 @@
 import * as Icons from '@lobehub/icons';
 import { memo } from 'react';
 
-import { Flexbox, StoryBook, useControls, useCreateStore } from '@/utils/ui-components';
-import { createStaticStyles } from '@/utils/styles';
+import { Flexbox, StoryBook, useControls, useCreateStore } from '../../utils/ui-components';
+import { createStaticStyles } from '../../utils/styles';
 
-import IconPreview from '@/components/IconPreview';
+import IconPreview from '../../components/IconPreview';
 
 const data = Object.values(Icons).filter((icon: any) => icon?.colorPrimary);
 

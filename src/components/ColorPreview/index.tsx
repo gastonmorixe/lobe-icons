@@ -2,8 +2,8 @@
 
 import { memo } from 'react';
 
-import { CopyButton, Flexbox, Tooltip } from '@/utils/ui-components';
-import { createStaticStyles, cx } from '@/utils/styles';
+import { CopyButton, Flexbox, Tooltip } from '../../utils/ui-components';
+import { createStaticStyles, cx } from '../../utils/styles';
 
 const styles = createStaticStyles(({ css, cssVar }) => {
   return {

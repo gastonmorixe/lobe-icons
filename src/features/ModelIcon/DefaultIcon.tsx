@@ -1,7 +1,7 @@
 import { Brain } from 'lucide-react';
 import { CSSProperties, memo } from 'react';
 
-import { Icon } from '@/utils/ui-components';
+import { Icon } from '../../utils/ui-components';
 
 interface DefaultIconProps {
   className?: string;

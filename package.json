@@ -20,12 +20,13 @@
   "license": "MIT",
   "author": "LobeHub <i@lobehub.com>",
   "sideEffects": false,
-  "main": "es/index.js",
-  "module": "es/index.js",
-  "types": "es/index.d.ts",
+  "main": "src/index.ts",
+  "module": "src/index.ts",
+  "types": "src/index.ts",
   "files": [
-    "es"
+    "src"
   ],
+  "private": true,
   "workspaces": [
     "packages/*"
   ],
@@ -49,8 +50,8 @@
     "lint:style": "stylelint \"{src,tests}/**/*.{js,jsx,ts,tsx}\" --fix",
     "prepack": "clean-package",
     "postpack": "clean-package restore",
-    "prepare": "husky && npm run setup",
-    "prepublishOnly": "npm run build",
+    "prepare": "exit 0",
+    "prepublishOnly": "exit 0",
     "prettier": "prettier -c --write --no-error-on-unmatched-pattern \"**/**\"",
     "pull": "git pull",
     "release": "semantic-release",

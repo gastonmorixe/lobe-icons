@@ -2,8 +2,8 @@
 
 import { memo } from 'react';
 
-import { Flexbox, Highlighter } from '@/utils/ui-components';
-import { createStaticStyles } from '@/utils/styles';
+import { Flexbox, Highlighter } from '../../utils/ui-components';
+import { createStaticStyles } from '../../utils/styles';
 
 const styles = createStaticStyles(({ css }) => {
   return {
@@ -36,7 +36,7 @@ const Preview = memo<PreviewProps>(({ svg, title, viewbox }) => {
         {`'use client';
 
 import { memo } from 'react';
-import type { IconType } from '@/types';
+import type { IconType } from '../../types';
 
 import { TITLE } from '../style';
 

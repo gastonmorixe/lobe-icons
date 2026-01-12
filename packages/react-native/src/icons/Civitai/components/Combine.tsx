@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 
-import { RNIconCombine, type RNIconCombineProps } from '@/features';
+import { RNIconCombine, type RNIconCombineProps } from '../../../../../../src/features';
 
 import { COMBINE_SPACE_MULTIPLE, COMBINE_TEXT_MULTIPLE, TITLE } from '../style';
 import Color from './Color';

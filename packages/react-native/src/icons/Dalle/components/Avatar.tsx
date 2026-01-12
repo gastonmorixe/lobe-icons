@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import { Image, ImageStyle, View, ViewStyle } from 'react-native';
 
-import { type RNIconAvatarProps } from '@/features';
+import { type RNIconAvatarProps } from '../../../../../../src/features';
 
 import { AVATAR_BACKGROUND } from '../style';
 

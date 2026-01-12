@@ -1,6 +1,6 @@
 import { memo, useMemo } from 'react';
 
-import { RNIconAvatar, type RNIconAvatarProps } from '@/features';
+import { RNIconAvatar, type RNIconAvatarProps } from '../../../../../../src/features';
 
 import {
   AVATAR_BACKGROUND,

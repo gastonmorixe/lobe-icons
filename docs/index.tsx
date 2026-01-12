@@ -1,7 +1,7 @@
 import { Expand, GitPullRequest, Trees } from 'lucide-react';
 
-import { Center, Flexbox } from '@/utils/ui-components';
-import Dashboard from '@/components/Dashboard';
+import { Center, Flexbox } from '../src/utils/ui-components';
+import Dashboard from '../src/components/Dashboard';
 
 // Simple Snippet component replacement
 const Snippet = ({ language, children }: { language?: string; children: React.ReactNode }) => (

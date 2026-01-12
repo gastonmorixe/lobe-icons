@@ -1,5 +1,5 @@
 import { ModelIcon, modelMappings } from '@lobehub/icons';
-import { Flexbox } from '@/utils/ui-components';
+import { Flexbox } from '../../../../src/utils/ui-components';
 
 export default () => {
   return (

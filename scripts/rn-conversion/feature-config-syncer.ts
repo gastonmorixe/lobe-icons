@@ -132,9 +132,9 @@ class FeatureConfigSyncer {
     transformed = transformed.replaceAll(/\bDivProps\s*&\s*/g, '');
 
     // 调整类型导入路径
-    transformed = transformed.replaceAll("from '@/features/IconAvatar'", "from './IconAvatar'");
-    transformed = transformed.replaceAll("from '@/features/IconCombine'", "from './IconCombine'");
-    transformed = transformed.replaceAll("from '@/types'", "from './types'");
+    transformed = transformed.replaceAll("from '../../src/features/IconAvatar'", "from './IconAvatar'");
+    transformed = transformed.replaceAll("from '../../src/features/IconCombine'", "from './IconCombine'");
+    transformed = transformed.replaceAll("from '../../src/types'", "from './types'");
 
     // 处理特殊的导入语句
     if (fileName === 'modelConfig.ts') {
@@ -154,7 +154,7 @@ class FeatureConfigSyncer {
     // 6. 修复特定的导入语句格式
     // 处理 Kwaipilot 的特殊导入 - 从 @/icons 改为直接导入
     transformed = transformed.replaceAll(
-      "import { Kwaipilot } from '@/icons';",
+      "import { Kwaipilot } from '../../src/icons';",
       "import Kwaipilot from '../icons/Kwaipilot';",
     );
 

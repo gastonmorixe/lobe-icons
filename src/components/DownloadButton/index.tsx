@@ -2,7 +2,7 @@
 
 import { HTMLAttributes, memo } from 'react';
 
-import { ActionIcon, ActionIconSize } from '@/utils/ui-components';
+import { ActionIcon, ActionIconSize } from '../../utils/ui-components';
 import { Download } from 'lucide-react';
 
 export interface DownloadButtonProps extends HTMLAttributes<HTMLButtonElement> {

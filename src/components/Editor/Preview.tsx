@@ -1,9 +1,9 @@
 import { Ref, memo } from 'react';
 
-import { Flexbox, Highlighter, Tag } from '@/utils/ui-components';
-import { createStaticStyles } from '@/utils/styles';
+import { Flexbox, Highlighter, Tag } from '../../utils/ui-components';
+import { createStaticStyles } from '../../utils/styles';
 
-import IconPreview from '@/components/IconPreview';
+import IconPreview from '../../components/IconPreview';
 
 const styles = createStaticStyles(({ css }) => {
   return {

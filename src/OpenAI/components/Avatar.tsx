@@ -2,7 +2,7 @@
 
 import { memo, useMemo } from 'react';
 
-import IconAvatar, { type IconAvatarProps } from '@/features/IconAvatar';
+import IconAvatar, { type IconAvatarProps } from '../../features/IconAvatar';
 
 import {
   AVATAR_BACKGROUND,

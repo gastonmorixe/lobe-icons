@@ -1,7 +1,7 @@
 import { memo } from 'react';
 
-import { Center } from '@/utils/ui-components';
-import { IconAvatarProps } from '@/features/IconAvatar';
+import { Center } from '../../utils/ui-components';
+import { IconAvatarProps } from '../../features/IconAvatar';
 
 import DefaultIcon from './DefaultIcon';
 

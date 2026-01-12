@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 
-import { RNIconCombineProps } from '@/features';
+import { RNIconCombineProps } from '../../../../../../src/features';
 
 import Mono from './Text';
 import Color from './TextColor';

@@ -1,8 +1,8 @@
 import React, { memo } from 'react';
 import { Defs, Path, RadialGradient, Stop, Svg } from 'react-native-svg';
 
-import type { RNIconProps } from '@/features';
-import { useFillIds } from '@/hooks/useFillId';
+import type { RNIconProps } from '../../../../../../src/features';
+import { useFillIds } from '../../../../../../src/hooks/useFillId';
 
 import { TITLE } from '../style';
 

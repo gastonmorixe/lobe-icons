@@ -1,7 +1,7 @@
 import { Radar } from 'lucide-react';
 import { type CSSProperties, memo } from 'react';
 
-import { Icon } from '@/utils/ui-components';
+import { Icon } from '../../utils/ui-components';
 
 interface DefaultIconProps {
   className?: string;

@@ -1,7 +1,7 @@
 import React, { memo, useMemo } from 'react';
 import { View, type ViewStyle } from 'react-native';
 
-import { RNIconCombineProps } from '@/features';
+import { RNIconCombineProps } from '../../../../../src/features';
 
 import { rnProviderMappings } from '../providerConfig';
 

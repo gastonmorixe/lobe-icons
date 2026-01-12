@@ -5,10 +5,10 @@ import { DownloadIcon, SearchIcon } from 'lucide-react';
 import { readableColor } from 'polished';
 import { ReactNode, memo, useCallback, useRef } from 'react';
 
-import { ActionIcon, Block, Center, CopyButton, Flexbox, Text } from '@/utils/ui-components';
-import { createStaticStyles, cx } from '@/utils/styles';
+import { ActionIcon, Block, Center, CopyButton, Flexbox, Text } from '../../utils/ui-components';
+import { createStaticStyles, cx } from '../../utils/styles';
 
-import { customKebabCase } from '@/components/Dashboard/utils';
+import { customKebabCase } from '../../components/Dashboard/utils';
 
 const styles = createStaticStyles(({ css, cssVar }) => {
   const colorText = cx(

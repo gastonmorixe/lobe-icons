@@ -2,8 +2,8 @@
 
 import { memo } from 'react';
 
-import { useFillIds } from '@/hooks/useFillId';
-import type { IconType } from '@/types';
+import { useFillIds } from '../../hooks/useFillId';
+import type { IconType } from '../../types';
 
 import { TITLE } from '../style';
 
