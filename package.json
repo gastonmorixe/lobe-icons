@@ -86,6 +86,7 @@
     ]
   },
   "dependencies": {
+    "es-toolkit": "^1.43.0",
     "lucide-react": "^0.469.0",
     "polished": "^4.3.1"
   },
@@ -107,7 +108,6 @@
     "dpdm": "^3.14.0",
     "dumi": "^2.4.21",
     "dumi-theme-lobehub": "^4.0.1",
-    "es-toolkit": "^1.43.0",
     "eslint": "^8.57.1",
     "father": "^4.6.11",
     "glob": "^11.1.0",
